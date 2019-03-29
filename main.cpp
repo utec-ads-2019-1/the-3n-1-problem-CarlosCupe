@@ -36,20 +36,20 @@ int testCase(int n) {
 
 int main(int argc, char *argv[]) {
     int x, y, min, max;
-    int max_cycles = 1;
-    int temp_max_cycles = 0;
-    cin >> x >> y;
 
-    checkMax(x, y, min, max);
-    
-    for (int i = min; i <= max; i++) {
-        temp_max_cycles = testCase(i);
+    while(cin >> x >> y) {
+        int max_cycles = 1;
+        int temp_max_cycles = 0;
+        checkMax(x, y, min, max);
         
-        if (temp_max_cycles > max_cycles)
-            max_cycles = temp_max_cycles;
+        for (int i = min; i <= max; i++) {
+            temp_max_cycles = testCase(i);
+            
+            if (temp_max_cycles > max_cycles)
+                max_cycles = temp_max_cycles;
+        }
+
+        cout << x << " " << y << " " << max_cycles <<endl;
     }
-
-    cout << x << " " << y << " " << max_cycles <<endl;
-
     return 0;
 }
